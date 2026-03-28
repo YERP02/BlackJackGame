@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>ASmile clinic </title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+<h2>Your Cards</h2>
+
+{% for card in player_cards %}
+<p>{{ card }}</p>
+{% endfor %}
+
+<h2>Dealer Cards</h2>
+
+{% for card in dealer_cards %}
+<p>{{ card }}</p>
+{% endfor %}
+
+<h2>Resultado</h2>
+
+<p>{{winner}}</p>
+
+
+<form action="/hit" method="post">
+    <button type="submit">Hit</button>
+</form>
+
+<form action="/stand" method="post">
+    <button type="submit">Stand</button>
+</form>
+
+<form action="/restart" method="post">
+    <button type="submit">Restart</button>
+</form>
+</body>
+</html>
