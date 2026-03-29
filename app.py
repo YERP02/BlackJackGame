@@ -12,7 +12,7 @@ def home():
 
     player_cards = game.get_player_cards()
     dealer_cards = game.get_dealer_cards()
-    winner = game.check_winner()
+    winner = game.result
 
     return render_template(
         "index.html",
@@ -24,14 +24,11 @@ def home():
 @app.route("/hit", methods=["POST"])
 def hit():
     game.player_hit()
-    game.check_winner(False)
     return redirect("/")
 
 @app.route("/stand", methods=["POST"])
 def stand():
     game.dealer_turn()
-    game.check_winner(False)
-    game_over = True
     return redirect("/")
 
 @app.route("/restart", methods=["POST"])
