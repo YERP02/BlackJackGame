@@ -16,6 +16,7 @@ class Game:
 
     def start_game(self):
         self.state = Game.PLAYING
+        self.result = None
         self.deck = Deck()
         self.deck.shuffle()
 
@@ -53,7 +54,7 @@ class Game:
             self.state = Game.GAMEOVER
 
     def dealer_busted(self):
-        return self.dealer_hand.get_value()> 21
+        return self.dealer_hand.get_value() > 21
 
     def dealer_turn(self):
         if self.state != Game.PLAYING or self.result:
